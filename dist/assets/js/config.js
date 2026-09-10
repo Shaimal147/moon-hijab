@@ -2,8 +2,8 @@
 // Leave blank to keep contact actions disabled instead of contacting a wrong number.
 export const business = {
   name: "Moon Hijab",
-  whatsappNumber: "+9600000000",
-  viberNumber: "+9600000000",
+  whatsappNumber: "+9607553939",
+  viberNumber: "+9607553939",
   address: "",
   hours: "",
   logo: "", // e.g. assets/images/logo.png

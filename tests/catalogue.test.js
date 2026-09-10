@@ -110,7 +110,15 @@ test("enquiries preserve price, add-ons, special requests, and do not misstate r
   assert.match(am, /54 inches/);
   assert.match(am, /Adjust sleeve & cuff/);
 });
-test("contact links stay disabled until configured and encode messages", () => {
+test("contact links disable blank numbers and encode messages", (t) => {
+  const originalWhatsApp = business.whatsappNumber;
+  const originalViber = business.viberNumber;
+  t.after(() => {
+    business.whatsappNumber = originalWhatsApp;
+    business.viberNumber = originalViber;
+  });
+  business.whatsappNumber = "";
+  business.viberNumber = "";
   assert.deepEqual(contactLinks("hello"), { whatsapp: null, viber: null });
   business.whatsappNumber = "+960 000 0000";
   business.viberNumber = "+960 000 0000";

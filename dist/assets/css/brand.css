@@ -384,6 +384,53 @@ a {
     padding: 1rem
 }
 
+.floating-chat {
+    position: fixed;
+    right: calc(1rem + env(safe-area-inset-right, 0px));
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    z-index: 1030;
+    display: flex;
+    flex-direction: column;
+    gap: .75rem
+}
+
+.floating-chat-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    color: #fff;
+    box-shadow: 0 4px 14px #192f3b33;
+    transition: transform .2s, box-shadow .2s
+}
+
+.floating-chat-whatsapp {
+    background: #128c4a
+}
+
+.floating-chat-viber {
+    background: #7360f2
+}
+
+.floating-chat-button:hover,
+.floating-chat-button:focus-visible {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px #192f3b4d
+}
+
+.floating-chat-button[aria-disabled="true"] {
+    opacity: .5;
+    pointer-events: none
+}
+
+/* Leave room to scroll footer content clear of the floating controls. */
+.site-footer {
+    padding-bottom: calc(9rem + env(safe-area-inset-bottom, 0px))
+}
+
 .skip-link:focus {
     top: 1rem
 }

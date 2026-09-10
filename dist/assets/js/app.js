@@ -38,6 +38,31 @@ $("#site-header").innerHTML =
     .join("")}</ul></div></div></nav>`;
 $("#site-footer").innerHTML =
   `<div class="container py-5"><div class="row gy-4 align-items-start"><div class="col-md-5"><a href="index.html" class="brand-wordmark text-decoration-none">${brand()}</a><p class="mt-3 mb-0 text-secondary">Everyday elegance, rooted in modesty.</p></div><div class="col-6 col-md-3"><p class="eyebrow mb-3">Explore</p><ul class="list-unstyled mb-0"><li class="mb-2"><a href="products.html">All products</a></li><li><a href="size-guide.html">Size & measurement guide</a></li></ul></div><div class="col-6 col-md-4"><p class="eyebrow mb-3">Here to help</p><a href="contact.html">Contact Moon Hijab</a><p class="text-secondary mt-2 mb-0">Confirm your choices with us before ordering.</p></div></div><div class="border-top mt-4 pt-4 d-flex flex-wrap justify-content-between gap-2 text-secondary"><span>© ${new Date().getFullYear()} Moon Hijab</span><span>All prices in Maldivian Rufiyaa (MVR)</span></div></div>`;
+// Shared by every page, including the missing-page fallback.
+const chatLinks = contactLinks(
+  "Assalaamu alaikum! I would like to ask about the Moon Hijab collection.",
+);
+const chatButtons = document.createElement("nav");
+chatButtons.className = "floating-chat";
+chatButtons.setAttribute("aria-label", "Chat with Moon Hijab");
+chatButtons.innerHTML = `
+  <a class="floating-chat-button floating-chat-whatsapp" aria-label="Chat with Moon Hijab on WhatsApp (opens in a new tab)" title="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 32 32" width="30" height="30" fill="none" aria-hidden="true" focusable="false">
+      <path d="M27 15.5a11 11 0 0 1-16.4 9.6L5 27l1.8-5.7A11 11 0 1 1 27 15.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="m12 9-2 1c-1 3 1 6 3 8s5 4 8 3l1-2-4-2-1.5 1.5c-2-1-3-2-4-4L14 13Z" fill="currentColor"/>
+    </svg>
+  </a>
+  <a class="floating-chat-button floating-chat-viber" aria-label="Chat with Moon Hijab on Viber (requires Viber)" title="Chat on Viber">
+    <svg viewBox="0 0 32 32" width="30" height="30" fill="none" aria-hidden="true" focusable="false">
+      <path d="M9 5c4-2 10-2 14 0 3 2 4 5 4 10s-2 8-6 9l-6 1-5 4v-5c-4-1-5-4-5-9S6 7 9 5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+      <path d="m11 9-2 1c-1 3 1 6 3 8s5 4 8 3l1-2-4-2-1.5 1.5c-2-1-3-2-4-4L13 13Z" fill="currentColor"/>
+      <path d="M17 8a7 7 0 0 1 7 7m-7-4a4 4 0 0 1 4 4m-4-1a1 1 0 0 1 1 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </a>`;
+setLink(chatButtons.querySelector(".floating-chat-whatsapp"), chatLinks.whatsapp);
+setLink(chatButtons.querySelector(".floating-chat-viber"), chatLinks.viber);
+document.body.append(chatButtons);
+
 function placeholder(name) {
   return `<div class="photo-placeholder"><div class="photo-name">${esc(name)}</div><div class="photo-line"></div><div class="photo-caption">Photography coming soon</div></div>`;
 }

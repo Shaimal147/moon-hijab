@@ -1,9 +1,9 @@
-// Add real contact details here. International format: +960 followed by number.
+// Replace the dummy +9600000000 numbers before launch. Use international format.
 // Leave blank to keep contact actions disabled instead of contacting a wrong number.
 export const business = {
   name: "Moon Hijab",
-  whatsappNumber: "",
-  viberNumber: "",
+  whatsappNumber: "+9600000000",
+  viberNumber: "+9600000000",
   address: "",
   hours: "",
   logo: "", // e.g. assets/images/logo.png

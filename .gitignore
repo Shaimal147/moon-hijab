@@ -1,0 +1,17 @@
+# Node dependencies, if you ever install any
+node_modules/
+
+# Environment/secrets
+.env
+.env.*
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
+
+# VS Code workspace settings
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*

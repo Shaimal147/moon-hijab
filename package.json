@@ -1,0 +1,1 @@
+{"name":"moon-hijab","private":true,"type":"module","scripts":{"test":"node --test tests/catalogue.test.js"}}

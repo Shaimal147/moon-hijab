@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#192f3b">
+    <meta name="description"
+        content="View product-specific garment measurements in inches to choose your Moon Hijab size.">
+    <title>Size & measurement guide | Moon Hijab</title>
+    <link rel="stylesheet" href="assets/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/brand.css">
+    <script defer src="assets/vendor/bootstrap.bundle.min.js"></script>
+    <script type="module" src="assets/js/app.js"></script>
+</head>
+
+<body data-page="guide">
+    <header id="site-header" class="site-header"></header><noscript>
+        <div class="container py-4">Please enable JavaScript to browse the catalogue and configure products. <a
+                href="index.html">Home</a> · <a href="products.html">Products</a> · <a href="contact.html">Contact</a>
+        </div>
+    </noscript>
+    <main id="main">
+        <div class="container section-space">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <p class="eyebrow mb-3">A little help with fit</p>
+                    <h1 class="page-title mb-4">Find your<br><em>measurements.</em></h1>
+                    <p class="text-secondary">Small in one style may differ from Small in another. Use the measurements
+                        for your chosen product.</p>
+                    <div class="soft-note p-4 mt-4"><strong class="d-block mb-2">All measurements are in
+                            inches.</strong>These are garment measurements, not body measurements. Compare them with a
+                        similar piece you already wear.</div>
+                </div>
+                <div class="col-lg-8"><label for="guide-product" class="form-label fw-semibold">Choose a
+                        product</label><select id="guide-product" class="form-select mb-4"></select>
+                    <div class="border p-3 p-md-4 bg-white">
+                        <div class="d-flex flex-wrap justify-content-between gap-2 align-items-center mb-3">
+                            <h2 class="h2 mb-0" id="guide-name"></h2><span class="badge feature-badge">Inches</span>
+                        </div>
+                        <div id="guide-table"></div>
+                        <p class="small text-secondary mt-3" id="guide-note"></p><a class="btn btn-outline-primary"
+                            id="guide-detail" href="products.html">View this product</a>
+                    </div>
+                    <div class="accordion accordion-flush mt-4 border-top">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header"><button class="accordion-button" data-bs-toggle="collapse"
+                                    data-bs-target="#measuring" aria-expanded="true" aria-controls="measuring">How to
+                                    compare measurements</button></h2>
+                            <div id="measuring" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    <ol class="ps-3 mb-0">
+                                        <li class="mb-2">Lay a similar garment flat without stretching the fabric.</li>
+                                        <li class="mb-2">Compare its front, back and any listed width or sleeve
+                                            measurements.</li>
+                                        <li>Ask us to confirm the measuring points if you are unsure. The product notes
+                                            do not specify them for every style.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header"><button class="accordion-button collapsed"
+                                    data-bs-toggle="collapse" data-bs-target="#between-sizes" aria-expanded="false"
+                                    aria-controls="between-sizes">Need help choosing a size?</button></h2>
+                            <div id="between-sizes" class="accordion-collapse collapse">
+                                <div class="accordion-body">Tell us the style you like and the coverage or length you
+                                    prefer. We can discuss the listed sizes and any available adjustments. <a
+                                        href="contact.html">Contact Moon Hijab</a>.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="site-footer" class="site-footer border-top"></footer>
+</body>
+
+</html>

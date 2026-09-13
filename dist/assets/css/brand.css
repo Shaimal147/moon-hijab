@@ -54,8 +54,21 @@ a {
 }
 
 .brand-logo {
-    max-height: 42px;
-    max-width: 160px
+    display: inline-block;
+    width: 184px;
+    height: 64px;
+    /* Crop the square image's empty space without stretching the lettering. */
+    object-fit: cover;
+    object-position: center;
+    vertical-align: middle;
+    mix-blend-mode: multiply
+}
+
+@media(min-width:768px) {
+    .brand-logo {
+        width: 216px;
+        height: 72px
+    }
 }
 
 .eyebrow {

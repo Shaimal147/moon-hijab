@@ -73,6 +73,10 @@ export const generalNiqabRules = {
   removableBack: true,
   faina: true,
   fainaPrice: 50,
+  cap: true,
+  capPrice: 10,
+  noseString: true,
+  noseStringPrice: 10,
 };
 const niqab = (id, name, description, extra = {}) => ({
   id,
@@ -256,9 +260,9 @@ export const products = [
       prices: single([280, 300, 350, 400]),
       startingPrice: 280,
       measurements: measurements([22, 25, 27, 30], [22, 25, 27, 30]),
-      rules: { layers: [1], removableBack: false, faina: false },
+      rules: { layers: [1], removableBack: false, faina: true },
       customizationNote:
-        "This style is not customizable. Available in one back layer, up to XL.",
+        "Available in one back layer, up to XL, with optional cap and nose string.",
     },
   ),
   garment(
@@ -404,8 +408,15 @@ export function priceFor(product, selection) {
     product.prices[selection.layers ?? product.rules.layers[0] ?? 1]?.[
       selection.size
     ];
-  const extra =
-    selection.faina && product.rules.faina ? product.rules.fainaPrice : 0;
+  const selectedAddOns = [
+    ["faina", "Faina eagle-eye treatment"],
+    ["cap", "cap"],
+    ["noseString", "nose string"],
+  ].filter(([id]) => selection[id] && product.rules[id]);
+  const extra = selectedAddOns.reduce(
+    (total, [id]) => total + product.rules[`${id}Price`],
+    0,
+  );
   if (selection.removeBack && product.rules.removableBack)
     return {
       exact: null,
@@ -422,7 +433,7 @@ export function priceFor(product, selection) {
     exact: base + extra,
     range: null,
     note: extra
-      ? "Includes Faina eagle-eye treatment."
+      ? `Includes ${selectedAddOns.map(([, label]) => label).join(", ")}.`
       : "For the selected size and options.",
   };
 }
@@ -439,6 +450,9 @@ export function enquiryMessage(product, s, price) {
     lines.push(
       `Faina eagle-eye treatment: ${s.faina ? "Yes (+MVR 50)" : "No"}`,
     );
+  for (const [id, label] of [["cap", "Cap"], ["noseString", "Nose string"]])
+    if (product.rules[id])
+      lines.push(`${label}: ${s[id] ? `Yes (+${money(product.rules[`${id}Price`])})` : "No"}`);
   for (const v of product.variants) lines.push(`${v.label}: ${s[v.id]}`);
   if (s.length) lines.push(`Length: ${s.length} inches`);
   if (s.notes?.trim()) lines.push(`Requests: ${s.notes.trim()}`);

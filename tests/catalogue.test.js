@@ -129,3 +129,40 @@ test("contact links disable blank numbers and encode messages", (t) => {
   business.whatsappNumber = "";
   business.viberNumber = "";
 });
+
+test("cap and nose string add MVR 10 each to every niqab", () => {
+  for (const p of products.filter((p) => p.category === "niqabs")) {
+    for (const size of p.sizes) {
+      for (const layers of p.rules.layers.length ? p.rules.layers : [1]) {
+        const base = priceFor(p, selection(size, layers));
+        for (const cap of [false, true]) {
+          for (const noseString of [false, true]) {
+            for (const faina of [false, true]) {
+              const s = selection(size, layers, { cap, noseString, faina });
+              const price = priceFor(p, s);
+              assert.equal(price.exact, base.exact === null ? null :
+                base.exact + (cap ? 10 : 0) + (noseString ? 10 : 0) +
+                (faina && p.rules.faina ? 50 : 0), `${p.id} ${size} ${layers}`);
+              const message = enquiryMessage(p, s, price);
+              assert.ok(message.includes(`Cap: ${cap ? "Yes (+MVR 10)" : "No"}`));
+              assert.ok(message.includes(`Nose string: ${noseString ? "Yes (+MVR 10)" : "No"}`));
+            }
+          }
+        }
+      }
+    }
+    if (p.rules.removableBack) {
+      const s = selection("S", 1, { cap: true, noseString: true, removeBack: true });
+      assert.equal(priceFor(p, s).exact, null);
+    }
+  }
+});
+
+test("niqab add-ons do not affect other garments", () => {
+  for (const p of products.filter((p) => p.category !== "niqabs")) {
+    const s = selection("S", p.rules.layers[0] ?? 1);
+    const extras = { ...s, cap: true, noseString: true };
+    assert.deepEqual(priceFor(p, extras), priceFor(p, s));
+    assert.doesNotMatch(enquiryMessage(p, extras, priceFor(p, extras)), /Cap:|Nose string:/);
+  }
+});

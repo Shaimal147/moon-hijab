@@ -6,8 +6,8 @@ export const business = {
   viberNumber: "+9607553939",
   address: "",
   hours: "",
-  logo: "", // e.g. assets/images/logo.png
-  heroImage: "", // e.g. assets/images/home.jpg
+  logo: "assets/images/moon-hijab-logo.jpeg", // e.g. assets/images/logo.png
+  heroImage: "" // e.g. assets/images/home.jpg
 };
 export function contactLinks(message) {
   const wa = business.whatsappNumber.replace(/\D/g, "");

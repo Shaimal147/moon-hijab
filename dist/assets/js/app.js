@@ -15,7 +15,7 @@ const esc = (v) =>
     /[&<>"']/g,
     (c) =>
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
-        c
+      c
       ],
   );
 const page = document.body.dataset.page;
@@ -146,7 +146,21 @@ if (page === "home") {
   $("#home-categories").innerHTML = categories
     .map(
       (c, i) =>
-        `<a class="category-link" href="products.html?category=${c.id}"><div class="d-flex align-items-center gap-4"><span class="section-number">0${i + 1}</span><div><h3>${c.name}</h3><p class="text-secondary small mb-0 mt-2">${c.description}</p></div></div><span class="ms-3" aria-hidden="true">↗</span></a>`,
+        `<a class="category-link" href="products.html?category=${c.id}"><div class="d-flex align-items-center gap-4"><span class="section-number">0${i + 1}</span><div><h3>${c.name}</h3><p class="text-secondary small mb-0 mt-2">${c.description}</p></div></div><span class="ms-3" aria-hidden="true"><svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4 12L12 4M6 4H12V10"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg></span></a>`,
     )
     .join("");
   $("#featured-products").innerHTML = [

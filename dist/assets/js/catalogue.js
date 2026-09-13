@@ -125,6 +125,9 @@ export const products = [
     tags: ["Flared silhouette"],
     prices: hareerPrices,
     startingPrice: 230,
+    images: [
+       {src: "assets/images/hareer-niqab.png", alt: "Hareer Niqab" } 
+      ]
   }),
   niqab(
     "shamaama",
@@ -138,13 +141,19 @@ export const products = [
       confirmationSizes: ["XXXL"],
       confirmationNote:
         "XXXL pricing and width need confirmation. Please request a quote.",
+      images: [
+       {src: "assets/images/shamaama-niqab.png", alt: "Shamaama Niqab" } 
+      ]
     },
   ),
   niqab(
     "butterfly-niqab",
     "Butterfly Niqab",
-    "A flowy niqab, available with one, two or three back layers.",
-    { tags: ["Flowy style"], prices: hareerPrices, startingPrice: 230 },
+    "A flowy niqab, available with one, two or three back layers. No pins needed.",
+    { tags: ["Flowy style"], prices: hareerPrices, startingPrice: 230, images: [
+       {src: "assets/images/butterfly-niqab2co.png", alt: "Butterfly Niqab" } 
+      ]
+    }
   ),
   niqab(
     "huzaima",
@@ -211,6 +220,9 @@ export const products = [
     confirmationSizes: ["XXXL"],
     confirmationNote:
       "XXXL pricing needs confirmation. Please request a quote.",
+    images: [
+       {src: "assets/images/yasmin-niqab.png", alt: "Yasmin Niqab" } 
+      ]
   }),
   niqab(
     "shawl-niqab",
@@ -229,6 +241,9 @@ export const products = [
       rules: { layers: [], removableBack: false },
       customizationNote:
         "Supplied as a shawl and front veil. No back-layer options are listed.",
+      images: [
+       {src: "assets/images/shawl-niqab2.png", alt: "Shawl Niqab" } 
+      ]
     },
   ),
   niqab(

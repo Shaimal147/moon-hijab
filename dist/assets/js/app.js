@@ -164,10 +164,10 @@ if (page === "home") {
     )
     .join("");
   $("#featured-products").innerHTML = [
-    "ferrari",
-    "malak",
+    "hareer",
+    "urwa",
+    "shawl-niqab",
     "khimar",
-    "butterfly-abaya",
   ]
     .map((id) => card(products.find((p) => p.id === id)))
     .join("");
